@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exam Arena — Premium Exam Platform</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#101828;--muted:#667085;--line:#e4e7ec;--primary:#4f46e5;--primary2:#7c3aed;--soft:#eef2ff;--good:#12b76a;--bad:#f04438;--warn:#f79009;--shadow:0 12px 35px rgba(16,24,40,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}.app{min-height:100vh}
+header{height:68px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 5%;gap:28px;position:sticky;top:0;z-index:20}.logo{font-weight:900;font-size:21px;letter-spacing:-.6px}.logo span{color:var(--primary)}nav{display:flex;gap:7px;flex:1}nav button,.icon{background:transparent;padding:9px 12px;color:var(--muted);border-radius:9px}nav button.active,nav button:hover{background:var(--soft);color:var(--primary)}.icon{font-size:18px}.container{max-width:1180px;margin:auto;padding:34px 20px}.hero{background:linear-gradient(135deg,#111827,#312e81);color:white;border-radius:24px;padding:42px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-80px;top:-100px;background:rgba(124,58,237,.35)}h1{font-size:42px;line-height:1.05;margin:0 0 12px;letter-spacing:-1.5px}.hero p{color:#d0d5dd;max-width:620px}.btn{padding:11px 17px;border-radius:10px;font-weight:750;transition:.18s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--primary);color:#fff}.white{background:#fff;color:#111827}.ghost{background:var(--soft);color:var(--primary)}.danger{background:#fee4e2;color:#b42318}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:19px;box-shadow:0 5px 18px rgba(16,24,40,.035)}.stat b{font-size:28px;display:block;margin-top:5px}.muted{color:var(--muted);font-size:13px}.section{display:flex;justify-content:space-between;align-items:center;margin:30px 0 13px}.section h2{margin:0;font-size:21px}.exam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.exam-card h3{margin:10px 0 6px}.tag{display:inline-block;background:var(--soft);color:var(--primary);padding:5px 9px;border-radius:7px;font-size:12px;font-weight:700}.meta{display:flex;gap:12px;color:var(--muted);font-size:12px;margin:13px 0}.searchbar{display:flex;gap:10px;margin-bottom:17px}.searchbar input,.searchbar select{background:#fff;border:1px solid var(--line);padding:12px 13px;border-radius:10px;outline:none}.searchbar input{flex:1}.progress{height:7px;background:#eaecf0;border-radius:10px;overflow:hidden}.progress i{display:block;height:100%;background:var(--primary);border-radius:10px}.exam-layout{display:grid;grid-template-columns:1fr 280px;gap:18px}.question{font-size:20px;font-weight:700;line-height:1.55;margin:25px 0}.option{display:flex;gap:13px;align-items:center;width:100%;text-align:left;padding:15px;margin:10px 0;background:#fff;border:1px solid var(--line);border-radius:12px;transition:.15s}.option:hover{border-color:#a5b4fc;background:#fafaff}.option.selected{border-color:var(--primary);background:var(--soft)}.letter{width:32px;height:32px;display:grid;place-items:center;border-radius:9px;background:#f2f4f7;font-weight:800}.selected .letter{background:var(--primary);color:#fff}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:15px}.qnum{padding:9px 0;border-radius:8px;background:#f2f4f7;color:#475467}.qnum.answered{background:#dcfae6;color:#027a48}.qnum.marked{outline:2px solid var(--warn)}.qnum.current{background:var(--primary);color:#fff}.exam-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.timer{font-weight:900;color:var(--primary);font-size:20px}.timer.warn{color:var(--warn)}.timer.danger-t{color:var(--bad)}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.result-score{text-align:center;padding:30px}.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;margin:10px auto;background:conic-gradient(var(--primary) 0deg,var(--primary) 280deg,#eaecf0 280deg)}.ring div{width:115px;height:115px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:29px;font-weight:900}.bars div{margin:13px 0}.bar{height:9px;background:#eaecf0;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--primary)}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:13px;border-bottom:1px solid var(--line);text-align:left}.modal{position:fixed;inset:0;background:rgba(16,24,40,.55);display:grid;place-items:center;z-index:50;padding:20px}.modalbox{max-width:480px;width:100%;background:#fff;border-radius:18px;padding:25px;box-shadow:var(--shadow)}.toast{position:fixed;right:20px;bottom:20px;background:#101828;color:white;padding:12px 17px;border-radius:10px;z-index:100;animation:up .2s}.mobile-menu{display:none}
+@keyframes up{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+body.dark{--bg:#0b1020;--card:#121a2b;--text:#f2f4f7;--muted:#98a2b3;--line:#25304a;--soft:#202b50;--shadow:0 12px 35px rgba(0,0,0,.25)}body.dark header{background:rgba(18,26,43,.9)}body.dark .hero{background:linear-gradient(135deg,#080d18,#1e1b4b)}body.dark .option,body.dark .searchbar input,body.dark .searchbar select,body.dark .modalbox{background:var(--card);color:var(--text)}body.dark .ring div{background:var(--card)}
+@media(max-width:850px){header{padding:0 15px}nav{display:none}.mobile-menu{display:block;margin-left:auto}.grid{grid-template-columns:repeat(2,1fr)}.exam-grid{grid-template-columns:1fr 1fr}.exam-layout{grid-template-columns:1fr}.hero{padding:28px}h1{font-size:33px}}
+@media(max-width:520px){.container{padding:22px 13px}.grid,.exam-grid{grid-template-columns:1fr 1fr;gap:10px}.card{padding:15px}.hero{border-radius:18px}.hero h1{font-size:29px}.section{margin-top:23px}.exam-top{align-items:flex-start}.question{font-size:17px}.searchbar{flex-wrap:wrap}.searchbar input{min-width:100%}.searchbar select{flex:1}.meta{gap:7px;flex-wrap:wrap}.btn{padding:10px 13px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="logo">Exam<span>Arena</span></div>
+<nav id="nav">
+<button data-page="home">Home</button><button data-page="exams">Exams</button><button data-page="leaderboard">Leaderboard</button><button data-page="results">Results</button><button data-page="profile">Profile</button><button data-page="admin">Admin</button>
+</nav>
+<button class="icon" onclick="toggleTheme()">◐</button><button class="mobile-menu icon" onclick="toggleNav()">☰</button>
+</header>
+<main id="main"></main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modalbox" id="modalbox"></div></div>
+<div id="toast" class="toast hidden"></div>
+
+<script>
+const exams=[
+{id:1,title:"Engineering Admission Mock Test 01",cat:"Engineering",subject:"Physics • Chemistry • Math",q:20,time:20,diff:"Hard",marks:1,neg:.25},
+{id:2,title:"GST Admission Practice Test",cat:"GST",subject:"Physics • Chemistry • Math",q:15,time:15,diff:"Medium",marks:1,neg:.25},
+{id:3,title:"University Admission Physics",cat:"University",subject:"Physics",q:12,time:12,diff:"Medium",marks:1,neg:.25},
+{id:4,title:"HSC Physics Chapter Test",cat:"HSC",subject:"Physics",q:10,time:10,diff:"Easy",marks:1,neg:0},
+{id:5,title:"General Knowledge Challenge",cat:"General",subject:"GK",q:10,time:8,diff:"Medium",marks:1,neg:.25},
+{id:6,title:"Mathematics Speed Test",cat:"University",subject:"Math",q:10,time:8,diff:"Hard",marks:1,neg:.25}
+];
+const bank=[
+["What is the SI unit of force?","Newton","Joule","Watt","Pascal",0],
+["Which particle has a negative charge?","Proton","Electron","Neutron","Photon",1],
+["What is 12 × 8?","86","96","108","112",1],
+["Which gas is most abundant in Earth's atmosphere?","Oxygen","Carbon dioxide","Nitrogen","Hydrogen",2],
+["Speed is equal to:","Distance × Time","Distance / Time","Time / Distance","Mass / Time",1],
+["The value of sin 90° is:","0","1/2","1","√2",2],
+["Which is a vector quantity?","Mass","Time","Temperature","Velocity",3],
+["Water boils at sea level at:","90°C","100°C","110°C","120°C",1],
+["Capital of Bangladesh?","Dhaka","Chattogram","Rajshahi","Khulna",0],
+["Light travels fastest in:","Water","Glass","Air","Vacuum",3],
+["If x + 5 = 12, x =","5","6","7","8",2],
+["The chemical symbol of sodium is:","So","Na","S","N",1],
+["Acceleration is the rate of change of:","Distance","Velocity","Mass","Force",1],
+["Which organelle is called the powerhouse of the cell?","Nucleus","Ribosome","Mitochondria","Golgi body",2],
+["A prime number is:","21","27","29","33",2],
+["Earth's natural satellite is:","Mars","Moon","Sun","Venus",1],
+["Ohm's law is:","V=IR","P=VI","F=ma","E=mc²",0],
+["7² equals:","14","42","49","56",2],
+["pH of neutral water is approximately:","5","7","9","11",1],
+["Which blood cells fight infection?","Red cells","White cells","Platelets","Plasma",1]
+];
+
+let page="home", exam=null, answers=[],marked=new Set(),idx=0,timer=null,endAt=0;
+const results=JSON.parse(localStorage.getItem("examResults")||"[]");
+function saveResults(){localStorage.setItem("examResults",JSON.stringify(results))}
+function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.remove("hidden");setTimeout(()=>x.classList.add("hidden"),1800)}
+function toggleTheme(){document.body.classList.toggle("dark");localStorage.theme=document.body.classList.contains("dark")?"dark":"light"}
+if(localStorage.theme==="dark")document.body.classList.add("dark");
+function toggleNav(){document.getElementById("nav").style.display=document.getElementById("nav").style.display==="flex"?"none":"flex";document.getElementById("nav").style.position="absolute";document.getElementById("nav").style.top="68px";document.getElementById("nav").style.left="10px";document.getElementById("nav").style.background="var(--card)";document.getElementById("nav").style.padding="10px";document.getElementById("nav").style.borderRadius="12px";document.getElementById("nav").style.flexDirection="column"}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.page));
+function go(p){if(timer&&p!=="exam"){showModal("Exam in progress","Your exam timer is active. Leave the exam?","Leave",()=>{clearInterval(timer);timer=null;page=p;render()},"Stay") }else{page=p;render()}}
+function render(){
+document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+const m=document.getElementById("main");
+if(page==="home")m.innerHTML=home();
+if(page==="exams")m.innerHTML=examList();
+if(page==="leaderboard")m.innerHTML=leaderboard();
+if(page==="results")m.innerHTML=resultList();
+if(page==="profile")m.innerHTML=profile();
+if(page==="admin")m.innerHTML=admin();
+if(page==="exam")m.innerHTML=examUI();
+if(page==="review")m.innerHTML=review();
+}
+function home(){return `<div class="container"><section class="hero"><h1>Test your preparation.</h1><p>Practice realistic exams, analyze mistakes and improve every day.</p><button class="btn white" onclick="go('exams')">Explore Exams →</button></section>
+<div class="grid"><div class="card stat"><span class="muted">Exams Taken</span><b>${results.length}</b></div><div class="card stat"><span class="muted">Questions Solved</span><b>${results.reduce((a,r)=>a+r.total,0)}</b></div><div class="card stat"><span class="muted">Average Score</span><b>${avgScore()}%</b></div><div class="card stat"><span class="muted">Current Streak</span><b>7 🔥</b></div></div>
+<div class="section"><h2>Recommended Exams</h2><button class="btn ghost" onclick="go('exams')">View all</button></div><div class="exam-grid">${exams.slice(0,3).map(card).join("")}</div>
+<div class="section"><h2>Daily Challenge</h2></div><div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:15px"><div><b>10 Questions · 8 Minutes</b><div class="muted">Quick practice to keep your streak alive.</div></div><button class="btn primary" onclick="startExam(5)">Start Challenge</button></div></div>`}
+function card(e){return `<div class="card exam-card"><span class="tag">${e.cat}</span><h3>${e.title}</h3><div class="muted">${e.subject}</div><div class="meta"><span>◷ ${e.time} min</span><span>☷ ${e.q} Q</span><span>${e.diff}</span></div><button class="btn primary" onclick="startExam(${e.id})">Start Exam</button></div>`}
+function examList(){return `<div class="container"><div class="section"><div><h2 style="font-size:28px">Explore Exams</h2><span class="muted">Choose a test and challenge yourself.</span></div></div><div class="searchbar"><input id="search" placeholder="Search exams..." oninput="filterExams()"><select id="cat" onchange="filterExams()"><option>All</option><option>Engineering</option><option>GST</option><option>University</option><option>HSC</option><option>General</option></select><select id="diff" onchange="filterExams()"><option>All</option><option>Easy</option><option>Medium</option><option>Hard</option></select></div><div id="examcards" class="exam-grid">${exams.map(card).join("")}</div></div>`}
+function filterExams(){let s=document.getElementById("search").value.toLowerCase(),c=document.getElementById("cat").value,d=document.getElementById("diff").value;document.getElementById("examcards").innerHTML=exams.filter(e=>(e.title+e.subject).toLowerCase().includes(s)&&(c==="All"||e.cat===c)&&(d==="All"||e.diff===d)).map(card).join("")||`<div class="card">No exams found.</div>`}
+function showModal(title,text,yes,fn,no="Cancel"){document.getElementById("modalbox").innerHTML=`<h2>${title}</h2><p class="muted">${text}</p><div class="actions"><button class="btn ghost" onclick="closeModal()">${no}</button><button class="btn primary" id="modalyes">${yes}</button></div>`;document.getElementById("modal").classList.remove("hidden");document.getElementById("modalyes").onclick=()=>{closeModal();fn()}}
+function closeModal(){document.getElementById("modal").classList.add("hidden")}
+function startExam(id){exam=exams.find(e=>e.id===id);showModal("Ready to begin?",`${exam.title}<br><br>${exam.q} questions · ${exam.time} minutes · Negative marking: ${exam.neg}`, "Start Exam",()=>{answers=Array(exam.q).fill(null);marked=new Set();idx=0;endAt=Date.now()+exam.time*60*1000;page="exam";render();timer=setInterval(tick,1000);tick()})}
+function tick(){let left=Math.max(0,endAt-Date.now());let sec=Math.ceil(left/1000);let el=document.getElementById("timer");if(el){let m=Math.floor(sec/60),s=sec%60;el.textContent=`${m}:${String(s).padStart(2,"0")}`;el.className="timer "+(sec<=60?"danger-t":sec<=300?"warn":"")}if(left<=0){clearInterval(timer);timer=null;finish(true)}}
+function examUI(){let q=bank[idx%bank.length],answered=answers.filter(x=>x!==null).length;return `<div class="container"><div class="exam-top"><div><b>${exam.title}</b><div class="muted">Question ${idx+1} of ${exam.q}</div></div><div id="timer" class="timer">--:--</div><button class="btn danger" onclick="confirmFinish()">Submit</button></div><div class="progress" style="margin:14px 0 20px"><i style="width:${answered/exam.q*100}%"></i></div><div class="exam-layout"><div class="card"><span class="tag">Question ${idx+1}</span><div class="question">${q[0]}</div>${q.slice(1,5).map((o,i)=>`<button class="option ${answers[idx]===i?"selected":""}" onclick="answer(${i})"><span class="letter">${String.fromCharCode(65+i)}</span>${o}</button>`).join("")}<div class="actions"><button class="btn ghost" onclick="prev()">← Previous</button><button class="btn ghost" onclick="mark()">⚑ ${marked.has(idx)?"Marked":"Mark for review"}</button><button class="btn primary" onclick="next()">Next →</button></div></div><aside class="card"><b>Question Navigator</b><div class="palette">${Array.from({length:exam.q},(_,i)=>`<button class="qnum ${i===idx?"current ":""}${answers[i]!==null?"answered ":""}${marked.has(i)?"marked":""}" onclick="jump(${i})">${i+1}</button>`).join("")}</div><div class="muted" style="margin-top:16px">Answered: ${answered} · Remaining: ${exam.q-answered}</div></aside></div></div>`}
+function answer(i){answers[idx]=i;render();toast("Answer saved")}
+function next(){if(idx<exam.q-1){idx++;render()}else confirmFinish()}
+function prev(){if(idx>0){idx--;render()}}
+function jump(i){idx=i;render()}
+function mark(){marked.has(idx)?marked.delete(idx):marked.add(idx);render();toast(marked.has(idx)?"Marked for review":"Removed mark")}
+function confirmFinish(){let a=answers.filter(x=>x!==null).length;showModal("Submit your exam?",`Answered: ${a}<br>Unanswered: ${exam.q-a}<br>Marked: ${marked.size}`, "Submit",()=>finish(false))}
+function finish(auto){let correct=0,wrong=0;for(let i=0;i<exam.q;i++){let q=bank[i%bank.length];if(answers[i]===null)continue;if(answers[i]===q[5])correct++;else wrong++}let score=correct*exam.marks-wrong*exam.neg;let max=exam.q*exam.marks;let r={exam:exam.title,correct,wrong,total:exam.q,score,max,date:new Date().toLocaleDateString()};results.unshift(r);saveResults();clearInterval(timer);timer=null;localStorage.lastResult=JSON.stringify(r);page="result";render();toast(auto?"Time is up — submitted":"Exam submitted")}
+function resultList(){return `<div class="container"><div class="section"><h2>Results</h2></div>${results.length?`<div class="card"><table class="table"><tr><th>Exam</th><th>Score</th><th>Accuracy</th><th>Date</th></tr>${results.map(r=>`<tr><td>${r.exam}</td><td><b>${r.score}/${r.max}</b></td><td>${Math.round(r.correct/r.total*100)}%</td><td>${r.date}</td></tr>`).join("")}</table></div>`:`<div class="card">No attempts yet. Start an exam to see your results.</div>`}</div>`}
+function result(){let r=JSON.parse(localStorage.lastResult||"{}");return `<div class="container"><div class="section"><h2>Exam Completed</h2></div><div class="card result-score"><div class="muted">${r.exam}</div><div class="ring"><div>${Math.round(r.score/r.max*100)}%</div></div><h2>${r.score} / ${r.max}</h2><div class="grid"><div><b>${r.correct}</b><div class="muted">Correct</div></div><div><b>${r.wrong}</b><div class="muted">Incorrect</div></div><div><b>${r.total-r.correct-r.wrong}</b><div class="muted">Unanswered</div></div><div><b>${Math.round(r.correct/r.total*100)}%</b><div class="muted">Accuracy</div></div></div><div class="actions"><button class="btn ghost" onclick="page='review';render()">Review Answers</button><button class="btn primary" onclick="startExam(exams.find(e=>e.title===r.exam)?.id||1)">Retake Exam</button></div></div></div>`}
+function leaderboard(){let names=["Arafat","Nafis","Sami","Akash","Rafi","Sakib","Mim"],rows=names.map((n,i)=>({n,score:980-i*71}));return `<div class="container"><div class="section"><div><h2 style="font-size:28px">Leaderboard</h2><span class="muted">Practice rankings for this demo.</span></div></div><div class="card"><table class="table"><tr><th>Rank</th><th>Student</th><th>Points</th></tr>${rows.map((r,i)=>`<tr><td><b>${i+1}</b></td><td>${r.n}${r.n==="Akash"?" · You":""}</td><td>${r.score}</td></tr>`).join("")}</table></div></div>`}
+function profile(){return `<div class="container"><div class="card"><h2>Akash</h2><div class="muted">Exam Arena student</div><div class="grid"><div><b>${results.length}</b><div class="muted">Exams completed</div></div><div><b>${results.reduce((a,r)=>a+r.total,0)}</b><div class="muted">Questions solved</div></div><div><b>${avgScore()}%</b><div class="muted">Average score</div></div><div><b>7</b><div class="muted">Day streak</div></div></div></div><div class="section"><h2>Achievements</h2></div><div class="grid"><div class="card">🏁 First Exam<div class="muted">Complete your first test</div></div><div class="card">🔥 7 Day Streak<div class="muted">Practice for seven days</div></div><div class="card">🎯 100 Questions<div class="muted">Solve 100 questions</div></div><div class="card">🏆 Perfect Score<div class="muted">Get every answer correct</div></div></div></div>`}
+function avgScore(){if(!results.length)return 0;return Math.round(results.reduce((a,r)=>a+r.score/r.max*100,0)/results.length)}
+function review(){let r=JSON.parse(localStorage.lastResult||"{}");return `<div class="container"><div class="section"><h2>Answer Review</h2><button class="btn ghost" onclick="go('results')">← Results</button></div>${bank.slice(0,exam?.q||10).map((q,i)=>`<div class="card" style="margin:12px 0"><b>Q${i+1}. ${q[0]}</b><p class="muted">Correct answer: <b>${q[q[5]+1]}</b></p><p class="${answers[i]===q[5]?"":"muted"}">${answers[i]===null?"Unanswered":answers[i]===q[5]?"✓ Correct":"✕ Incorrect"}</p><details><summary>Explanation</summary><p class="muted">The correct option is ${q[q[5]+1]}. Review the concept and try again.</p></details></div>`).join("")}</div>`}
+function admin(){return `<div class="container"><div class="section"><div><h2 style="font-size:28px">Admin · Exam Creator</h2><span class="muted">Create and manage demo exams.</span></div><button class="btn primary" onclick="addDemoExam()">+ New Exam</button></div><div class="grid"><div class="card stat"><span class="muted">Total Exams</span><b>${exams.length}</b></div><div class="card stat"><span class="muted">Questions</span><b>${exams.reduce((a,e)=>a+e.q,0)}</b></div><div class="card stat"><span class="muted">Attempts</span><b>${results.length}</b></div><div class="card stat"><span class="muted">Published</span><b>${exams.length}</b></div></div><div class="card"><h3>Question Editor</h3><input id="newq" placeholder="Question text..." style="width:100%;padding:12px;border:1px solid var(--line);border-radius:9px"><div class="grid" style="grid-template-columns:1fr 1fr"><input class="newopt" placeholder="Option A"><input class="newopt" placeholder="Option B"><input class="newopt" placeholder="Option C"><input class="newopt" placeholder="Option D"></div><select id="correct"><option value="0">Correct: A</option><option value="1">Correct: B</option><option value="2">Correct: C</option><option value="3">Correct: D</option></select> <button class="btn primary" onclick="addQuestion()">Add Question</button><p class="muted">Demo editor stores questions in the current session.</p></div></div>`}
+function addQuestion(){let q=document.getElementById("newq").value,o=[...document.querySelectorAll(".newopt")].map(x=>x.value);if(!q||o.some(x=>!x))return toast("Fill all fields");bank.push([q,...o,+document.getElementById("correct").value]);toast("Question added");document.getElementById("newq").value=""}
+function addDemoExam(){let id=exams.length+1;exams.push({id,title:"New Custom Mock Test",cat:"University",subject:"Mixed",q:10,time:10,diff:"Medium",marks:1,neg:.25});render();toast("New exam created")}
+render();
+</script>
+</body>
+</html>
